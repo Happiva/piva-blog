@@ -5,11 +5,11 @@ import IconButton from '../IconButton';
 
 const Footer = () => {
   return (
-    <>
+    <footer>
       <IconButton buttonIcon={faGithub} link="https://github.com/Happiva" />
       <IconButton buttonIcon={faBlog} link="https://hphhbva.tistory.com/" />
       <div>ⓒ 2023 by Piva</div>
-    </>
+    </footer>
   );
 };
 
