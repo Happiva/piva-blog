@@ -8,7 +8,7 @@ const Header = () => {
       <div className="absolute w-full top-0 lg:hidden z-0">
         <Wave />
       </div>
-      <div className="text-3xl text-white italic font-bold drop-shadow pl-[12px] lg:text-gray-dark lg:text-[32px]">
+      <div className="text-3xl text-white italic font-bold drop-shadow pl-[16px] lg:text-gray-dark lg:text-[32px]">
         Code box:
       </div>
       <ColorModeSwitch />
