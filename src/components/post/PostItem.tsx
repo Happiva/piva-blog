@@ -31,7 +31,7 @@ const PostItem = ({ post }: PostItemProps) => {
             {getFormattedDate(createdAt)}
           </div>
         </div>
-        <div className="bg-sand-dark rounded-[7px] px-[6px] py-[8px] font-bold italic h-fit">
+        <div className="bg-sand-dark rounded-[7px] px-[6px] py-[4px] font-bold italic h-fit">
           {category}
         </div>
       </div>
