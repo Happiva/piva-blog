@@ -1,6 +1,8 @@
 import React from 'react';
+import Link from 'next/link';
 import ColorModeSwitch from '../ColorModeSwitch';
 import Wave from '../Wave';
+import Navigator from './Navigator';
 
 const Header = () => {
   return (
@@ -8,10 +10,16 @@ const Header = () => {
       <div className="absolute w-full top-0 lg:hidden z-0">
         <Wave />
       </div>
-      <div className="text-3xl text-white italic font-bold drop-shadow pl-[16px] lg:text-gray-dark lg:text-[32px]">
+      <Link
+        href="/"
+        className="text-3xl text-white italic font-bold drop-shadow pl-[16px] lg:text-gray-dark lg:text-[32px]"
+      >
         Code box:
+      </Link>
+      <div className="flex items-center">
+        <Navigator />
+        <ColorModeSwitch />
       </div>
-      <ColorModeSwitch />
     </header>
   );
 };
