@@ -1,18 +1,34 @@
 import React from 'react';
-import { DUMMY_POST } from '@/DUMMY';
+import { GetStaticProps } from 'next';
 import PostItem from '@/components/post/PostItem';
+import { getAllPosts } from '@/utils/markdown';
+import { Post } from '@/types';
 
-export default function Home() {
+interface HomeProps {
+  posts?: Post[];
+}
+
+export default function Home({ posts = [] }: HomeProps) {
   return (
-    <div className="flex flex-col items-center py-[20px] lg:grid lg:grid-cols-2">
-      {DUMMY_POST.length > 0 ? (
-        DUMMY_POST.map((post, index) => (
-          // eslint-disable-next-line react/no-array-index-key
-          <PostItem key={`post item-${index}`} post={post} />
-        ))
-      ) : (
-        <>no items!</>
-      )}
+    <div className="flex">
+      <div className="flex flex-col items-center py-[20px] lg:grid lg:grid-cols-2">
+        {posts.length > 0 ? (
+          posts.map((post) => {
+            const { title } = post;
+            return <PostItem key={`post item-${title}`} post={post} />;
+          })
+        ) : (
+          <>no items!</>
+        )}
+      </div>
     </div>
   );
 }
+
+export const getStaticProps: GetStaticProps = async () => {
+  const posts = getAllPosts();
+
+  return {
+    props: { posts },
+  };
+};

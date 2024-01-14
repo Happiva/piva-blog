@@ -1,7 +1,6 @@
 import { Post } from '@/types';
 import React from 'react';
 import Image from 'next/image';
-import { getFormattedDate } from '@/utility';
 
 interface PostItemProps {
   post: Post;
@@ -28,7 +27,7 @@ const PostItem = ({ post }: PostItemProps) => {
             {title}
           </div>
           <div className="text-start text-gray-base italic font-bold">
-            {getFormattedDate(createdAt)}
+            {createdAt}
           </div>
         </div>
         <div className="bg-sand-dark rounded-[7px] px-[6px] py-[4px] font-bold italic h-fit">

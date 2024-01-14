@@ -5,7 +5,7 @@ export enum Category {
 export type Post = {
   title: string;
   thumbnail: string;
-  // content: string;
-  createdAt: Date;
+  draft: boolean;
+  createdAt: string;
   category: Category;
 };
