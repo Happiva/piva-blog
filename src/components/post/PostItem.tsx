@@ -1,17 +1,18 @@
 import { Post } from '@/types';
 import React from 'react';
 import Image from 'next/image';
+import Link from 'next/link';
 
 interface PostItemProps {
   post: Post;
 }
 
 const PostItem = ({ post }: PostItemProps) => {
-  const { title, thumbnail: thumbnailPath, createdAt, category } = post;
+  const { title, thumbnail: thumbnailPath, createdAt, category, slug } = post;
 
   return (
-    <button
-      type="button"
+    <Link
+      href={`/post/${slug}`}
       className="bg-white rounded-[5px] p-[8px] max-w-[343px] shadow mb-[16px]"
     >
       <Image
@@ -34,7 +35,7 @@ const PostItem = ({ post }: PostItemProps) => {
           {category}
         </div>
       </div>
-    </button>
+    </Link>
   );
 };
 

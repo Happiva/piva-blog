@@ -8,4 +8,5 @@ export type Post = {
   draft: boolean;
   createdAt: string;
   category: Category;
+  slug: string;
 };
