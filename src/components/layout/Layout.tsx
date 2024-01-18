@@ -1,11 +1,8 @@
 import React from 'react';
+import { LayoutProps } from '@/types';
 import Header from './Header';
 import Footer from './Footer';
 import SideWave from '../SideWave';
-
-interface LayoutProps {
-  children: React.ReactNode;
-}
 
 const Layout = ({ children }: LayoutProps) => {
   return (

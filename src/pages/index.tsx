@@ -11,7 +11,7 @@ interface HomeProps {
 export default function Home({ posts = [] }: HomeProps) {
   return (
     <div className="flex">
-      <div className="flex flex-col items-center py-[20px] lg:grid lg:grid-cols-2">
+      <div className="flex flex-col items-center lg:place-items-center py-[20px] lg:grid lg:grid-cols-2 lg:w-full">
         {posts.length > 0 ? (
           posts.map((post) => {
             const { title } = post;

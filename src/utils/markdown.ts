@@ -1,3 +1,4 @@
+import { Post } from '@/types';
 import { readFileSync, readdirSync } from 'fs';
 import matter from 'gray-matter';
 
@@ -10,24 +11,26 @@ export const getFileContent = (fileName: string) => {
 
 export const getPost = (fileName: string) => {
   const source = getFileContent(fileName);
-  const { content } = matter(source);
+  const { content, data } = matter(source);
 
-  return content;
+  return { content, data };
 };
 
 export const getAllPosts = () => {
   const files = readdirSync(PATH);
   const markdownFiles = files.filter((file) => file.includes('.md'));
 
-  const metaDatas = markdownFiles.map((file) => {
-    const source = getFileContent(file);
-    const { data } = matter(source);
+  const metaDatas = markdownFiles
+    .map((file) => {
+      const source = getFileContent(file);
+      const { data } = matter(source);
 
-    return {
-      slug: file.replace('.md', ''),
-      ...data,
-    };
-  });
+      return {
+        slug: file.replace('.md', ''),
+        ...data,
+      } as Post;
+    })
+    .filter((file) => file?.draft === false);
 
   return metaDatas;
 };

@@ -2,6 +2,7 @@ import { Post } from '@/types';
 import React from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
+import CategoryTag from '../shared/CategoryTag';
 
 interface PostItemProps {
   post: Post;
@@ -31,9 +32,7 @@ const PostItem = ({ post }: PostItemProps) => {
             {createdAt}
           </div>
         </div>
-        <div className="bg-sand-dark rounded-[7px] px-[6px] py-[4px] font-bold italic h-fit">
-          {category}
-        </div>
+        <CategoryTag category={category} />
       </div>
     </Link>
   );
