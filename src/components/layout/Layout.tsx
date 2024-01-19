@@ -6,14 +6,15 @@ import SideWave from '../SideWave';
 
 const Layout = ({ children }: LayoutProps) => {
   return (
-    <>
+    <div className="flex flex-col h-full">
       <div className="absolute h-[100%] -z-10 hidden lg:block">
+        <Footer className="absolute bottom-0 left-[16px]" />
         <SideWave />
       </div>
       <Header />
-      <main className="px-[16px]">{children}</main>
-      <Footer />
-    </>
+      <main className="h-lvh px-[16px] pt-[20px]">{children}</main>
+      <Footer className="lg:hidden" />
+    </div>
   );
 };
 

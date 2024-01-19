@@ -1,15 +1,12 @@
 import { Category } from '@/types';
 
-interface CategoryTagProps {
+interface CategoryTagProps extends React.HTMLProps<HTMLDivElement> {
   category: Category;
 }
 
-const CategoryTag = ({ category }: CategoryTagProps) => {
-  return (
-    <div className="bg-sand-dark rounded-[7px] px-[6px] py-[4px] font-bold italic h-fit">
-      {category}
-    </div>
-  );
+const CategoryTag = ({ category, ...props }: CategoryTagProps) => {
+  const tagStyle = `${props.className} bg-sand-dark rounded-[7px] px-[6px] py-[4px] font-bold italic h-fit`;
+  return <div className={tagStyle}>{category}</div>;
 };
 
 export default CategoryTag;

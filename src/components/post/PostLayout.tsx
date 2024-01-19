@@ -14,7 +14,7 @@ const PostLayout = ({ postData, children }: PostLayoutProps) => {
         createdAt={postData.createdAt}
         category={postData.category}
       />
-      <section className="bg-white lg:p-[16px] lg:mt-[16px] lg:rounded-[10px] h-full">
+      <section className="bg-white lg:overflow-auto lg:p-[16px] lg:mt-[16px] lg:rounded-[10px] h-full">
         {children}
       </section>
     </>

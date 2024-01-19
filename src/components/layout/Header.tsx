@@ -6,7 +6,7 @@ import Navigator from './Navigator';
 
 const Header = () => {
   return (
-    <header className="justify-between relative flex min-h-[77px] items-center lg:bg-sand-dark lg:py-[12px] lg:px-[34px]">
+    <header className="justify-between relative flex min-h-[65px] items-center lg:bg-sand-dark lg:py-[12px] lg:px-[34px]">
       <div className="absolute w-full top-0 lg:hidden z-0">
         <Wave />
       </div>
