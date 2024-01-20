@@ -3,6 +3,7 @@ import { readFileSync, readdirSync } from 'fs';
 import matter from 'gray-matter';
 import { serialize } from 'next-mdx-remote/serialize';
 import remarkGfm from 'remark-gfm';
+import rehypePrism from 'rehype-prism-plus';
 
 const PATH = 'posts/';
 
@@ -39,6 +40,10 @@ export const getAllPosts = () => {
 
 export const serializeMdx = async (source: string) => {
   return serialize(source, {
-    mdxOptions: { remarkPlugins: [remarkGfm] },
+    mdxOptions: {
+      remarkPlugins: [remarkGfm],
+      rehypePlugins: [rehypePrism],
+      format: 'mdx',
+    },
   });
 };
