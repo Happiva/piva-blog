@@ -1,20 +1,19 @@
 import PostLayout from '@/components/post/PostLayout';
 import { Post } from '@/types';
-import { getAllPosts, getPost } from '@/utils/markdown';
+import { getAllPosts, getPost, serializeMdx } from '@/utils/markdown';
 import { GetStaticPaths, GetStaticProps } from 'next';
+import { MDXRemote, MDXRemoteSerializeResult } from 'next-mdx-remote';
 import React from 'react';
-import Markdown from 'react-markdown';
-import remarkGfm from 'remark-gfm';
 
 interface PostProps {
-  content: string;
+  content: MDXRemoteSerializeResult;
   data: Post;
 }
 
 const PostPage = ({ content, data }: PostProps) => {
   return (
     <PostLayout postData={data}>
-      <Markdown remarkPlugins={[remarkGfm]}>{content}</Markdown>
+      <MDXRemote {...content} />
     </PostLayout>
   );
 };
@@ -32,8 +31,10 @@ export const getStaticProps: GetStaticProps = async (context) => {
   const slug = context.params?.slug ?? '';
   const { content, data } = getPost(`${slug}.md`);
 
+  const mdxSource = await serializeMdx(content);
+
   return {
-    props: { content, data },
+    props: { content: mdxSource, data },
   };
 };
 

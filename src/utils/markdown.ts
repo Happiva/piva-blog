@@ -1,6 +1,8 @@
 import { Post } from '@/types';
 import { readFileSync, readdirSync } from 'fs';
 import matter from 'gray-matter';
+import { serialize } from 'next-mdx-remote/serialize';
+import remarkGfm from 'remark-gfm';
 
 const PATH = 'posts/';
 
@@ -33,4 +35,10 @@ export const getAllPosts = () => {
     .filter((file) => file?.draft === false);
 
   return metaDatas;
+};
+
+export const serializeMdx = async (source: string) => {
+  return serialize(source, {
+    mdxOptions: { remarkPlugins: [remarkGfm] },
+  });
 };
