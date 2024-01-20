@@ -20,7 +20,7 @@ export const getPost = (fileName: string) => {
 
 export const getAllPosts = () => {
   const files = readdirSync(PATH);
-  const markdownFiles = files.filter((file) => file.includes('.md'));
+  const markdownFiles = files.filter((file) => file.includes('.mdx'));
 
   const metaDatas = markdownFiles
     .map((file) => {
@@ -28,7 +28,7 @@ export const getAllPosts = () => {
       const { data } = matter(source);
 
       return {
-        slug: file.replace('.md', ''),
+        slug: file.replace('.mdx', ''),
         ...data,
       } as Post;
     })

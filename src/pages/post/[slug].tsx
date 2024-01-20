@@ -29,7 +29,7 @@ export const getStaticPaths: GetStaticPaths = async () => {
 
 export const getStaticProps: GetStaticProps = async (context) => {
   const slug = context.params?.slug ?? '';
-  const { content, data } = getPost(`${slug}.md`);
+  const { content, data } = getPost(`${slug}.mdx`);
 
   const mdxSource = await serializeMdx(content);
 
