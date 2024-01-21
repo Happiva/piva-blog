@@ -23,10 +23,6 @@ html, body {
   height: 100%;
 }
 
-body {
-  background: rgba(242, 230, 216, 0.5);
-}
-
 #__next {
   height: 100%;
 }

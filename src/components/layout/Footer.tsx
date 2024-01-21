@@ -12,7 +12,9 @@ const Footer = ({ ...props }: React.HTMLProps<HTMLDivElement>) => {
         <IconButton buttonIcon={faGithub} link="https://github.com/Happiva" />
         <IconButton buttonIcon={faBlog} link="https://hphhbva.tistory.com/" />
       </div>
-      <div className="text-gray-dark text-xs">ⓒ 2023 by Piva</div>
+      <div className="text-gray-dark text-xs dark:text-white">
+        ⓒ 2023 by Piva
+      </div>
     </footer>
   );
 };

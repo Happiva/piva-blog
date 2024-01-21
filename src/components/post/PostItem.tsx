@@ -14,7 +14,7 @@ const PostItem = ({ post }: PostItemProps) => {
   return (
     <Link
       href={`/post/${slug}`}
-      className="bg-white rounded-[5px] p-[8px] max-w-[343px] shadow mb-[16px]"
+      className="bg-white dark:bg-dark-blue-dark rounded-[5px] p-[8px] max-w-[343px] shadow mb-[16px] dark:border-2 dark:border-dark-sky-200"
     >
       <Image
         alt="Thumbnail for blog post"
@@ -28,7 +28,7 @@ const PostItem = ({ post }: PostItemProps) => {
           <div className="text-start font-bold text-2xl line-clamp-1">
             {title}
           </div>
-          <div className="text-start text-gray-base italic font-bold">
+          <div className="text-start text-gray-base italic font-bold dark:text-dark-sky-200">
             {createdAt}
           </div>
         </div>
