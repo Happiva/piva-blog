@@ -1,5 +1,5 @@
 import { useTheme } from 'next-themes';
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 
 const SideWaveSvg = ({ isDark }: { isDark: boolean }) => (
   <svg
@@ -25,8 +25,16 @@ const SideWaveSvg = ({ isDark }: { isDark: boolean }) => (
 );
 
 const SideWave = () => {
+  const [mounted, setMounted] = useState<boolean>(false);
   const { theme, resolvedTheme } = useTheme();
-  return <SideWaveSvg isDark={theme === 'dark' || resolvedTheme === 'dark'} />;
+
+  useEffect(() => {
+    setMounted(true);
+  }, []);
+
+  return !mounted ? null : (
+    <SideWaveSvg isDark={theme === 'dark' || resolvedTheme === 'dark'} />
+  );
 };
 
 export default SideWave;

@@ -1,5 +1,5 @@
 import { useTheme } from 'next-themes';
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 
 const WaveSvg = ({ isDark }: { isDark: boolean }) => (
   <svg
@@ -25,8 +25,16 @@ const WaveSvg = ({ isDark }: { isDark: boolean }) => (
 );
 
 const Wave = () => {
+  const [mounted, setMounted] = useState<boolean>(false);
   const { theme, resolvedTheme } = useTheme();
-  return <WaveSvg isDark={theme === 'dark' || resolvedTheme === 'dark'} />;
+
+  useEffect(() => {
+    setMounted(true);
+  }, []);
+
+  return !mounted ? null : (
+    <WaveSvg isDark={theme === 'dark' || resolvedTheme === 'dark'} />
+  );
 };
 
 export default Wave;
