@@ -1,5 +1,8 @@
 export enum Category {
-  JAVASCRIPT = 'Javascript',
+  JAVASCRIPT = 'javascript',
+  REACT = 'react',
+  PROJECT = 'project',
+  ETC = 'etc',
 }
 
 export interface LayoutProps {
