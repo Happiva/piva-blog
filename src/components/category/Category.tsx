@@ -1,23 +1,25 @@
 import { Category } from '@/types';
 import { getCategoryName } from '@/utils/utility';
+import Link from 'next/link';
 
-interface CategoryProps {
+interface CategoryItemProps {
   text?: string;
   category?: Category;
 }
 
-const CategoryItem = ({ text, category }: CategoryProps) => {
+const CategoryItem = ({ text, category }: CategoryItemProps) => {
   const categoryName =
     text ?? (category != null ? getCategoryName(category) : '');
+
+  const link = category != null ? `/categories/${category}` : '/';
+
   return (
-    <li>
-      <button
-        type="button"
-        className="rounded-[50px] py-[10px] px-[12px] shadow text-center bg-white dark:border-2 dark:border-dark-sky-200 dark:bg-dark-blue-dark"
-      >
-        {categoryName}
-      </button>
-    </li>
+    <Link
+      href={link}
+      className="rounded-[50px] w-fit py-[10px] px-[12px] shadow text-center bg-white dark:border-2 dark:border-dark-sky-200 dark:bg-dark-blue-dark"
+    >
+      {categoryName}
+    </Link>
   );
 };
 

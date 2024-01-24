@@ -4,7 +4,7 @@ import CategoryItem from './Category';
 
 const Categories = () => {
   return (
-    <ul className="space-y-4 w-[300px] lg:fixed">
+    <div className="flex flex-col space-y-4 w-[300px] h-full lg:fixed">
       <CategoryItem text="전체" />
       {Object.keys(Category).map((el) => (
         <CategoryItem
@@ -12,7 +12,7 @@ const Categories = () => {
           category={Category[el as keyof typeof Category]}
         />
       ))}
-    </ul>
+    </div>
   );
 };
 
