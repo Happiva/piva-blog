@@ -1,6 +1,7 @@
 import { forwardRef } from 'react';
 import { Post } from '@/types';
 import PostItem from './PostItem';
+import EmptyList from '../shared/EmptyList';
 
 interface PostListProps {
   posts: Post[];
@@ -18,7 +19,7 @@ const PostList = forwardRef<HTMLDivElement, PostListProps>(({ posts }, ref) => {
           return <PostItem key={`post item-${title}`} post={post} />;
         })
       ) : (
-        <>no items!</>
+        <EmptyList />
       )}
     </div>
   );

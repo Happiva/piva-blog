@@ -5,7 +5,6 @@ import Footer from './Footer';
 import SideWave from '../SideWave';
 
 const Layout = ({ children }: LayoutProps) => {
-  const mainStyle = `px-[16px] pt-[20px] lg:h-lvh lg:pt-[95px] lg:px-[30px]`;
   return (
     <div className="flex flex-col h-full">
       <div className="fixed h-[100%] -z-10 hidden lg:block">
@@ -13,7 +12,9 @@ const Layout = ({ children }: LayoutProps) => {
         <SideWave />
       </div>
       <Header />
-      <main className={mainStyle}>{children}</main>
+      <main className="px-[16px] pt-[20px] lg:h-lvh lg:pt-[95px] lg:px-[30px]">
+        {children}
+      </main>
       <Footer className="lg:hidden" />
     </div>
   );

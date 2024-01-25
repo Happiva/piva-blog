@@ -8,6 +8,7 @@ const SideWaveSvg = ({ isDark }: { isDark: boolean }) => (
     width="236"
     height="100%"
     preserveAspectRatio="none"
+    className="drop-shadow-md"
   >
     <path
       fill={isDark ? '#56738C' : '#32838C'}
