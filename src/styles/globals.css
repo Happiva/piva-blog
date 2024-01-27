@@ -3,6 +3,7 @@
 @tailwind utilities;
 
 @import 'prism-vsc-dark-plus.css';
+@import 'prose.css';
 
 :root {
   --foreground-rgb: 0, 0, 0;

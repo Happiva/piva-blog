@@ -1,0 +1,18 @@
+.prose h1,
+.prose h2,
+.prose h3,
+.prose h4,
+.prose p,
+.prose code,
+.prose a,
+.prose strong,
+.prose em,
+.prose li,
+.prose table,
+.prose th {
+  @apply dark:text-white;
+}
+
+.prose p > a {
+  word-break: break-word;
+}
