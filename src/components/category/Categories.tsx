@@ -4,7 +4,7 @@ import CategoryItem from './Category';
 
 const Categories = () => {
   return (
-    <div className="flex flex-col space-y-4 w-[300px] h-full lg:fixed">
+    <div className="flex-col space-y-4 w-left-menu h-full hidden lg:fixed lg:flex">
       <CategoryItem text="전체" />
       {Object.keys(Category).map((el) => (
         <CategoryItem

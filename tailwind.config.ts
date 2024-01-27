@@ -41,6 +41,9 @@ const config: Config = {
       fontFamily: {
         comfortaa: ['var(--font-comfortaa)'],
       },
+      padding: {
+        'left-menu': '250px',
+      },
     },
   },
   // eslint-disable-next-line import/no-extraneous-dependencies, global-require

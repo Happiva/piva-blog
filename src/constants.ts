@@ -18,6 +18,7 @@ export const navLinks = [
 ];
 
 export const DESKTOP_WIDTH = 1024;
+export const SCROLL_POINT = 100;
 
 export const CATEGORY_NAME = [
   { key: Category.JAVASCRIPT, text: 'Javascript' },

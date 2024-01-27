@@ -16,7 +16,7 @@ const CategoryItem = ({ text, category }: CategoryItemProps) => {
   return (
     <Link
       href={link}
-      className="rounded-[50px] w-fit py-[10px] px-[12px] shadow text-center bg-white dark:border-2 dark:border-dark-sky-200 dark:bg-dark-blue-dark"
+      className="rounded-[50px] w-fit py-[10px] px-[12px] shadow text-center bg-white hover:bg-sun dark:border-2 dark:border-dark-sky-200 dark:bg-dark-blue-dark"
     >
       {categoryName}
     </Link>
