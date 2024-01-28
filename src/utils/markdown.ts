@@ -33,6 +33,17 @@ export const getAllPosts = () => {
         ...data,
       } as Post;
     })
+    .sort((file1, file2) => {
+      const date1 = new Date(file1.createdAt);
+      const date2 = new Date(file2.createdAt);
+
+      if (date1.getFullYear() === date2.getFullYear()) {
+        if (date1.getMonth() === date2.getMonth())
+          return date2.getDate() - date1.getDate();
+        return date2.getMonth() - date1.getMonth();
+      }
+      return date2.getFullYear() - date1.getFullYear();
+    })
     .filter((file) => file?.draft === false);
 
   return metaDatas;

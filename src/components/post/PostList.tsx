@@ -1,4 +1,3 @@
-import { forwardRef } from 'react';
 import { Post } from '@/types';
 import PostItem from './PostItem';
 import EmptyList from '../shared/EmptyList';
@@ -7,10 +6,9 @@ interface PostListProps {
   posts: Post[];
 }
 
-const PostList = forwardRef<HTMLDivElement, PostListProps>(({ posts }, ref) => {
-  const listStyle = `flex flex-1 flex-col items-center lg:place-items-center lg:w-full lg:items-end lg:pl-left-menu`;
+const PostList = ({ posts }: PostListProps) => {
   return (
-    <div ref={ref} className={listStyle}>
+    <div className="flex flex-col items-center lg:place-items-center lg:w-[85%] lg:items-end lg:pl-left-menu">
       {posts.length > 0 ? (
         posts.map((post) => {
           const { title } = post;
@@ -21,7 +19,7 @@ const PostList = forwardRef<HTMLDivElement, PostListProps>(({ posts }, ref) => {
       )}
     </div>
   );
-});
+};
 
 PostList.displayName = 'PostList';
 

@@ -4,15 +4,18 @@ import { Category, Post } from '@/types';
 import { getAllPosts } from '@/utils/markdown';
 import Categories from '@/components/category/Categories';
 import PostList from '@/components/post/PostList';
+import MobileCategories from '@/components/category/MobileCategories';
 
 interface CategoryPageProps {
   posts?: Post[];
+  category: string;
 }
 
-const CategoryPage = ({ posts = [] }: CategoryPageProps) => {
+const CategoryPage = ({ posts = [], category }: CategoryPageProps) => {
   return (
     <div className="flex flex-col lg:flex-row">
       <Categories />
+      <MobileCategories defaultCategory={category} />
       <PostList posts={posts} />
     </div>
   );
@@ -38,6 +41,7 @@ export const getStaticProps: GetStaticProps = async (context) => {
   return {
     props: {
       posts: postsInCategory,
+      category,
     },
   };
 };
