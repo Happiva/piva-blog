@@ -31,7 +31,7 @@ const MobileCategories = ({ defaultCategory }: MobileCategoriesProps) => {
   return (
     <div className="mb-[8px] lg:hidden">
       <select
-        className="rounded-[5px]"
+        className="rounded-[5px] p-[8px]"
         onChange={onChangeSelection}
         defaultValue={defaultValue}
       >

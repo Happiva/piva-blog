@@ -1,6 +1,6 @@
 import { Category } from '@/types';
 
-export const MAX_CONTENTS_DISPLAY = 4;
+export const MAX_CONTENTS_DISPLAY = 5;
 
 export const navLinks = [
   {
