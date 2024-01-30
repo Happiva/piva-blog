@@ -7,6 +7,8 @@ const usePagination = (originalPosts: Post[]) => {
   const router = useRouter();
   const [currentPage, setCurrentPage] = useState<number>(1);
   const [visiblePosts, setVisiblePosts] = useState<Post[]>([]);
+  const [prevEnabled, setPrevEnabled] = useState<boolean>(false);
+  const [nextEnabled, setNextEnabled] = useState<boolean>(false);
 
   useEffect(() => {
     const page = router.query?.page ?? '1';
@@ -21,11 +23,16 @@ const usePagination = (originalPosts: Post[]) => {
       (post, idx) => startIdx <= idx && idx < endIdx,
     );
     setVisiblePosts(selectedPosts);
+
+    setPrevEnabled(currentPage !== 1);
+    setNextEnabled(originalPosts.length > MAX_CONTENTS_DISPLAY * currentPage);
   }, [currentPage, originalPosts]);
 
   return {
     pageIdx: currentPage,
     postsInPage: visiblePosts,
+    prevEnabled,
+    nextEnabled,
   };
 };
 

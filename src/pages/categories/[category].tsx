@@ -5,7 +5,6 @@ import { getAllPosts } from '@/utils/markdown';
 import Categories from '@/components/category/Categories';
 import PostList from '@/components/post/PostList';
 import MobileCategories from '@/components/category/MobileCategories';
-import usePagination from '@/hook/usePagination';
 
 interface CategoryPageProps {
   posts?: Post[];
@@ -13,13 +12,11 @@ interface CategoryPageProps {
 }
 
 const CategoryPage = ({ posts = [], category }: CategoryPageProps) => {
-  const { pageIdx, postsInPage } = usePagination(posts);
-
   return (
     <div className="flex flex-col lg:flex-row">
       <Categories />
       <MobileCategories defaultCategory={category} />
-      <PostList pageIndex={pageIdx} posts={postsInPage} />
+      <PostList posts={posts} />
     </div>
   );
 };
