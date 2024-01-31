@@ -58,3 +58,14 @@ export const serializeMdx = async (source: string) => {
     },
   });
 };
+
+export const getHeadingForTOC = async (source: string) => {
+  const headings = source.split('\n').filter((str) => str.match(/^#+/));
+
+  return headings.map((str) => {
+    const headingText = str.replace(/^#+/, '');
+    const level = 6 - str.slice(0, 6).replace(/^#+/, '').length;
+
+    return { text: headingText, level };
+  });
+};

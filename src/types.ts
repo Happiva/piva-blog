@@ -17,3 +17,8 @@ export type Post = {
   category: Category;
   slug: string;
 };
+
+export type Heading = {
+  text: string;
+  level: number;
+};

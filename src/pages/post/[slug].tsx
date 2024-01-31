@@ -1,8 +1,15 @@
 import Categories from '@/components/category/Categories';
 import PostTitle from '@/components/post/PostTitle';
+import TOC from '@/components/post/TOC';
+import HeadingComponent from '@/components/shared/Heading';
 import ScrollUpButton from '@/components/shared/ScrollUpButton';
-import { Post } from '@/types';
-import { getAllPosts, getPost, serializeMdx } from '@/utils/markdown';
+import { Heading, Post } from '@/types';
+import {
+  getAllPosts,
+  getHeadingForTOC,
+  getPost,
+  serializeMdx,
+} from '@/utils/markdown';
 import { GetStaticPaths, GetStaticProps } from 'next';
 import { MDXRemote, MDXRemoteSerializeResult } from 'next-mdx-remote';
 import React from 'react';
@@ -10,9 +17,22 @@ import React from 'react';
 interface PostProps {
   content: MDXRemoteSerializeResult;
   data: Post;
+  tocData: Heading[];
 }
 
-const PostPage = ({ content, data }: PostProps) => {
+const customMdxComponents = {
+  h1: (props: React.HTMLProps<HTMLHeadElement>) => (
+    <HeadingComponent type="h1">{props.children}</HeadingComponent>
+  ),
+  h2: (props: React.HTMLProps<HTMLHeadElement>) => (
+    <HeadingComponent type="h2">{props.children}</HeadingComponent>
+  ),
+  h3: (props: React.HTMLProps<HTMLHeadElement>) => (
+    <HeadingComponent type="h3">{props.children}</HeadingComponent>
+  ),
+};
+
+const PostPage = ({ content, data, tocData }: PostProps) => {
   return (
     <div className="flex flex-col lg:flex-row">
       <Categories />
@@ -24,9 +44,10 @@ const PostPage = ({ content, data }: PostProps) => {
           category={data.category}
         />
         <section className="prose rounded-[5px] p-[12px] dark:bg-dark-blue-dark dark:border-2 dark:border-dark-sky-200 bg-white lg:overflow-auto lg:p-[30px] lg:mt-[16px] lg:rounded-[10px] h-fit">
-          <MDXRemote {...content} />
+          <MDXRemote {...content} components={customMdxComponents} />
         </section>
       </div>
+      <TOC tocData={tocData} />
     </div>
   );
 };
@@ -45,9 +66,10 @@ export const getStaticProps: GetStaticProps = async (context) => {
   const { content, data } = getPost(`${slug}.mdx`);
 
   const mdxSource = await serializeMdx(content);
+  const tocData = await getHeadingForTOC(content);
 
   return {
-    props: { content: mdxSource, data },
+    props: { content: mdxSource, data, tocData },
   };
 };
 
