@@ -13,7 +13,7 @@ const PostList = ({ posts }: PostListProps) => {
     usePagination(posts);
 
   return (
-    <div className="flex flex-col items-center lg:place-items-center lg:w-[85%] lg:items-end lg:pl-left-menu lg:pb-[20px]">
+    <div className="flex flex-col items-center lg:place-items-center lg:w-[85%] lg:items-center lg:pl-left-menu lg:pb-[20px]">
       {postsInPage.length > 0 ? (
         <>
           {postsInPage.map((post, index) => {

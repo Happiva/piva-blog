@@ -8,11 +8,11 @@ const Layout = ({ children }: LayoutProps) => {
   return (
     <div className="flex flex-col h-full">
       <div className="fixed h-[100%] -z-10 hidden lg:block">
-        <Footer className="absolute bottom-0 left-[16px]" />
+        <Footer className="absolute bottom-0 z-10 left-[16px]" />
         <SideWave />
       </div>
       <Header />
-      <main className="px-[16px] pt-[20px] lg:h-lvh lg:pt-[95px] lg:px-[30px]">
+      <main className="px-[20px] pt-[24px] lg:h-lvh lg:pt-[95px] lg:px-[30px]">
         {children}
       </main>
       <Footer className="lg:hidden" />

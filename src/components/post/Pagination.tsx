@@ -57,7 +57,7 @@ const Pagination = ({
   };
 
   return (
-    <div className="bg-white flex rounded-[50px] self-center p-[10px] w-full place-content-between w-[200px] dark:bg-dark-blue-dark dark:border-dark-sky-200 dark:border-2">
+    <div className="bg-white flex rounded-[50px] self-center p-[10px] place-content-between w-[200px] dark:bg-dark-blue-dark dark:border-dark-sky-200 dark:border-2">
       <ArrowButton
         icon={faChevronLeft}
         onClick={onClickPrev}

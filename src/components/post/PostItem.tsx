@@ -2,6 +2,7 @@ import { Post } from '@/types';
 import React from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
+import useIsDesktop from '@/hook/useIsDesktop';
 import CategoryTag from '../shared/CategoryTag';
 
 interface PostItemProps {
@@ -10,17 +11,18 @@ interface PostItemProps {
 
 const PostItem = ({ post }: PostItemProps) => {
   const { title, thumbnail: thumbnailPath, createdAt, category, slug } = post;
+  const { isDesktop } = useIsDesktop();
 
   return (
     <Link
       href={`/post/${slug}`}
-      className="bg-white dark:bg-dark-blue-dark rounded-[5px] p-[8px] max-w-[343px] shadow mb-[16px] dark:border-2 dark:border-dark-sky-200 lg:flex lg:flex-row lg:max-w-none lg:w-full lg:p-[10px]"
+      className="bg-white dark:bg-dark-blue-dark rounded-[5px] p-[8px] max-w-[343px] shadow mb-[16px] dark:border-2 dark:border-dark-sky-200 lg:flex lg:flex-row lg:max-w-[750px] lg:w-full lg:p-[10px]"
     >
       <Image
         alt="Thumbnail for blog post"
         className="rounded-[5px] lg:mr-[20px]"
-        width={328}
-        height={180}
+        width={isDesktop ? 233 : 328}
+        height={isDesktop ? 133 : 180}
         src={thumbnailPath}
       />
       <div className="justify-between mt-[8px] flex lg:flex-col lg:m-0 lg:py-[8px]">
