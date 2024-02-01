@@ -63,7 +63,7 @@ const Pagination = ({
         onClick={onClickPrev}
         enabled={prevEnabled}
       />
-      <div className="rounded-full font-bold size-[33px] place-content-center text-center bg-sand-dark dark:bg-sun">
+      <div className="rounded-full font-bold size-[33px] justify-center items-center flex bg-sand-dark dark:bg-sun">
         {currentPage}
       </div>
       <ArrowButton
