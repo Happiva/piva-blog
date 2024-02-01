@@ -36,6 +36,7 @@ const config: Config = {
       },
       sun: '#E1622C',
       moon: '#FFE791',
+      transparent: 'transparent',
     },
     extend: {
       fontFamily: {

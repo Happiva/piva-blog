@@ -1,5 +1,5 @@
 interface HeadingProps extends React.HTMLProps<HTMLHeadingElement> {
-  type: 'h1' | 'h2' | 'h3';
+  type: 'h1' | 'h2' | 'h3' | 'h4';
 }
 
 const Heading = ({ type, children }: HeadingProps) => {
@@ -17,7 +17,11 @@ const Heading = ({ type, children }: HeadingProps) => {
     return <h2 id={id}>{children}</h2>;
   }
 
-  return <h3 id={id}>{children}</h3>;
+  if (type === 'h3') {
+    return <h3 id={id}>{children}</h3>;
+  }
+
+  return <h4 id={id}>{children}</h4>;
 };
 
 export default Heading;

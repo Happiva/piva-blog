@@ -30,6 +30,9 @@ const customMdxComponents = {
   h3: (props: React.HTMLProps<HTMLHeadElement>) => (
     <HeadingComponent type="h3">{props.children}</HeadingComponent>
   ),
+  h4: (props: React.HTMLProps<HTMLHeadElement>) => (
+    <HeadingComponent type="h4">{props.children}</HeadingComponent>
+  ),
 };
 
 const PostPage = ({ content, data, tocData }: PostProps) => {
@@ -37,7 +40,7 @@ const PostPage = ({ content, data, tocData }: PostProps) => {
     <div className="flex flex-col lg:flex-row">
       <Categories />
       <ScrollUpButton />
-      <div className="lg:pl-left-menu lg:w-[85%] lg:pb-[30px]">
+      <div className="lg:pl-left-menu lg:w-[80%] lg:pb-[30px]">
         <PostTitle
           title={data.title}
           createdAt={data.createdAt}
@@ -47,7 +50,9 @@ const PostPage = ({ content, data, tocData }: PostProps) => {
           <MDXRemote {...content} components={customMdxComponents} />
         </section>
       </div>
-      <TOC tocData={tocData} />
+      <div className="flex-1">
+        {tocData.length > 0 && <TOC tocData={tocData} />}
+      </div>
     </div>
   );
 };
