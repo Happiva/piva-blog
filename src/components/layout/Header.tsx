@@ -3,6 +3,7 @@ import Link from 'next/link';
 import ColorModeSwitch from '../ColorModeSwitch';
 import Wave from '../Wave';
 import Navigator from './Navigator';
+import MobileNavigator from './MobileNavigator';
 
 const Header = () => {
   return (
@@ -19,6 +20,7 @@ const Header = () => {
       <div className="flex items-center">
         <Navigator />
         <ColorModeSwitch />
+        <MobileNavigator />
       </div>
     </header>
   );
