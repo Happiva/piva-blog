@@ -30,6 +30,8 @@ export const getAllPosts = () => {
 
       return {
         slug: file.replace('.mdx', ''),
+        thumbnail: data.thumbnail === '' ? null : data.thumbnail,
+        summary: data.summary ?? '',
         ...data,
       } as Post;
     })

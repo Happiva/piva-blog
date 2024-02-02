@@ -11,7 +11,8 @@ export interface LayoutProps {
 
 export type Post = {
   title: string;
-  thumbnail: string;
+  summary: string;
+  thumbnail?: string;
   draft: boolean;
   createdAt: string;
   category: Category;
