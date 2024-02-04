@@ -17,7 +17,7 @@ const Header = () => {
       >
         Code box:
       </Link>
-      <div className="flex items-center">
+      <div className="flex">
         <Navigator />
         <ColorModeSwitch />
         <MobileNavigator />

@@ -43,6 +43,28 @@ const config: Config = {
       fontFamily: {
         comfortaa: ['var(--font-comfortaa)'],
       },
+      animation: {
+        // 'fade-out': 'fadeOut 1s ease-in-out',
+        // 'fade-in': 'fadeIn 1s ease-in-out',
+        slide: 'slideX 0.5s ease-out',
+        'slide-back': 'slideBack 0.5s ease-out',
+      },
+      keyframes: {
+        // fadeOut: {
+        //   '100%': { transform: 'opacity 0' },
+        // },
+        // fadeIn: {
+        //   '100%': { transform: 'opacity 1' },
+        // },
+        slideX: {
+          '0%': { transform: 'translateX(100%)' },
+          '100%': { transform: 'translateX(0%)' },
+        },
+        slideBack: {
+          '0%': { transform: 'translateX(0%)' },
+          '100%': { transform: 'translateX(100%)' },
+        },
+      },
       padding: {
         'left-menu': '250px',
       },
