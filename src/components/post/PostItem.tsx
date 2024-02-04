@@ -25,7 +25,7 @@ const PostItem = ({ post }: PostItemProps) => {
   return (
     <Link
       href={`/post/${slug}`}
-      className="bg-white dark:bg-dark-blue-dark rounded-[5px] p-[12px] max-w-[343px] shadow mb-[16px] dark:border-2 dark:border-dark-sky-200 sm:flex sm:flex-row sm:max-w-[750px] sm:w-full sm:p-[10px]"
+      className="bg-white dark:bg-dark-blue-dark rounded-[5px] p-[12px] max-w-[343px] w-full shadow mb-[16px] dark:border-2 dark:border-dark-sky-200 sm:flex sm:flex-row sm:max-w-[750px] sm:w-full sm:p-[10px]"
     >
       {thumbnailPath !== '' && thumbnailPath != null ? (
         <Image
@@ -36,7 +36,7 @@ const PostItem = ({ post }: PostItemProps) => {
           src={thumbnailPath}
         />
       ) : (
-        <div className="w-[328px] h-[180px] whitespace-pre bg-gray-light dark:bg-[#59422E] text-[20px] font-bold text-center flex items-center justify-center rounded-[5px] sm:mr-[20px] lg:w-[233px] lg:h-[133px]">{`[${categoryName}]\n${summary}`}</div>
+        <div className="max-w-[328px] w-full h-[180px] whitespace-pre bg-gray-light dark:bg-[#59422E] text-[20px] font-bold text-center flex items-center justify-center rounded-[5px] sm:mr-[20px] lg:w-[233px] lg:h-[133px]">{`[${categoryName}]\n${summary}`}</div>
       )}
       <div className="justify-between mt-[8px] flex sm:flex-col sm:m-0 sm:py-[8px]">
         <div className="w-full">

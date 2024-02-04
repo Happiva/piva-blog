@@ -12,9 +12,16 @@ const comfortaa = Comfortaa({
 
 const MobileNavigator = () => {
   const [isMenuVisible, setIsMenuVisible] = useState<boolean>(false);
+  const [visible, setVisible] = useState<boolean>(false);
 
   const onClickButton = () => {
-    setIsMenuVisible((prev) => !prev);
+    setIsMenuVisible((prev) => {
+      if (prev) {
+        setTimeout(() => setVisible(false), 450);
+      } else setVisible(true);
+
+      return !prev;
+    });
   };
 
   return (
@@ -28,8 +35,8 @@ const MobileNavigator = () => {
         <FontAwesomeIcon icon={faBars} className="size-[25px]" />
       </button>
       <div
-        className={`bg-white/50 absolute inset-0 flex flex-col overflow-hidden dark:bg-dark-blue-dark/50 ${
-          isMenuVisible ? 'block' : 'hidden'
+        className={`bg-white/50 absolute z-20 inset-0 flex flex-col overflow-hidden dark:bg-dark-blue-dark/50 ${
+          visible ? 'block' : 'hidden'
         }`}
       >
         <div
