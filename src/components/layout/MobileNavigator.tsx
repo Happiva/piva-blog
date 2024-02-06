@@ -32,7 +32,7 @@ const MobileNavigator = () => {
         className="relative mr-[16px] lg:hidden"
         onClick={onClickButton}
       >
-        <FontAwesomeIcon icon={faBars} className="size-[25px]" />
+        <FontAwesomeIcon color="white" icon={faBars} className="size-[25px]" />
       </button>
       <div
         className={`bg-white/50 absolute z-20 inset-0 flex flex-col overflow-hidden dark:bg-dark-blue-dark/50 ${

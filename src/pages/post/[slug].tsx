@@ -1,4 +1,5 @@
 import Categories from '@/components/category/Categories';
+import Comments from '@/components/post/Comments';
 import PostTitle from '@/components/post/PostTitle';
 import TOC from '@/components/post/TOC';
 import HeadingComponent from '@/components/shared/Heading';
@@ -49,6 +50,7 @@ const PostPage = ({ content, data, tocData }: PostProps) => {
         <section className="prose rounded-[5px] p-[12px] dark:bg-dark-blue-dark dark:border-2 dark:border-dark-sky-200 bg-white lg:overflow-auto lg:p-[30px] lg:mt-[16px] lg:rounded-[10px] h-fit">
           <MDXRemote {...content} components={customMdxComponents} />
         </section>
+        <Comments />
       </div>
       <div className="flex-1">
         {tocData.length > 0 && <TOC tocData={tocData} />}
