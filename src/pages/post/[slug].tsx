@@ -1,9 +1,9 @@
 import Categories from '@/components/category/Categories';
 import Comments from '@/components/post/Comments';
+import FloatingButtons from '@/components/post/FloatingButtons';
 import PostTitle from '@/components/post/PostTitle';
 import TOC from '@/components/post/TOC';
 import HeadingComponent from '@/components/shared/Heading';
-import ScrollUpButton from '@/components/shared/ScrollUpButton';
 import { Heading, Post } from '@/types';
 import {
   getAllPosts,
@@ -40,7 +40,7 @@ const PostPage = ({ content, data, tocData }: PostProps) => {
   return (
     <div className="flex flex-col lg:flex-row">
       <Categories />
-      <ScrollUpButton />
+      <FloatingButtons />
       <div className="lg:pl-left-menu lg:w-[80%] lg:pb-[30px]">
         <PostTitle
           title={data.title}

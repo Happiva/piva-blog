@@ -1,8 +1,11 @@
 import { useTheme } from 'next-themes';
 import React, { useEffect, useRef, useState } from 'react';
+import { faAngleDown, faAngleUp } from '@fortawesome/free-solid-svg-icons';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 const Comments = () => {
   const [mounted, setMounted] = useState<boolean>(false);
+  const [folded, setFolded] = useState<boolean>(false);
   const ref = useRef<HTMLDivElement>(null);
   const { theme, resolvedTheme } = useTheme();
 
@@ -33,12 +36,23 @@ const Comments = () => {
     scriptElement.async = true;
 
     ref.current?.appendChild(scriptElement);
-  }, [mounted, theme, resolvedTheme]);
+  }, [mounted, theme, resolvedTheme, folded]);
 
   if (!mounted) return null;
+
   return (
-    <section className="bg-white rounded-[10px] mt-[12px] dark:bg-dark-blue-dark p-[16px]">
-      <div ref={ref} />
+    <section
+      id="comments"
+      className="bg-white rounded-[10px] mt-[12px] dark:bg-dark-blue-dark p-[16px] dark:border-2 dark:border-dark-sky-200"
+    >
+      <button type="button" onClick={() => setFolded((prev) => !prev)}>
+        <FontAwesomeIcon
+          className="mr-[8px]"
+          icon={folded ? faAngleDown : faAngleUp}
+        />
+        {folded ? '댓글 열기' : '댓글 접기'}
+      </button>
+      {!folded && <div ref={ref} />}
     </section>
   );
 };

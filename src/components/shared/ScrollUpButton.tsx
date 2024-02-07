@@ -31,7 +31,7 @@ const ScrollUpButton = () => {
 
   return isVisible ? (
     <button
-      className="bg-white fixed z-10 h-fit bottom-[12px] right-[12px] lg:bottom-[24px] lg:right-[24px] dark:bg-dark-sky-200 rounded-[5px] px-[14px] py-[8px]"
+      className="bg-white h-fit dark:bg-dark-sky-200 rounded-[5px] px-[14px] py-[8px]"
       aria-label="Scroll up button"
       type="button"
       onClick={onClick}
