@@ -3,12 +3,6 @@ import { faBars, faXmark } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import Link from 'next/link';
 import { useState } from 'react';
-import { Comfortaa } from 'next/font/google';
-
-const comfortaa = Comfortaa({
-  subsets: ['latin'],
-  variable: '--font-comfortaa',
-});
 
 const MobileNavigator = () => {
   const [isMenuVisible, setIsMenuVisible] = useState<boolean>(false);
@@ -58,7 +52,7 @@ const MobileNavigator = () => {
               key={text}
               href={link}
               onClick={onClickButton}
-              className={`${comfortaa.variable} text-[24px] font-comfortaa py-[20px]`}
+              className="text-[24px] font-comfortaa py-[20px]"
             >
               {text}
             </Link>

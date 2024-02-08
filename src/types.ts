@@ -5,10 +5,6 @@ export enum Category {
   ETC = 'etc',
 }
 
-export interface LayoutProps {
-  children: React.ReactNode;
-}
-
 export type Post = {
   title: string;
   summary: string;

@@ -42,6 +42,7 @@ const config: Config = {
     extend: {
       fontFamily: {
         comfortaa: ['var(--font-comfortaa)'],
+        'noto-sans-kr': ['var(--font-noto-sans-kr)'],
       },
       animation: {
         // 'fade-out': 'fadeOut 1s ease-in-out',
