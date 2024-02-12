@@ -1,6 +1,6 @@
 import React from 'react';
 import { GetStaticPaths, GetStaticProps } from 'next';
-import { Category, Post } from '@/types';
+import { Post, allCategories } from '@/types';
 import { getAllPosts } from '@/utils/markdown';
 import Categories from '@/components/category/Categories';
 import PostList from '@/components/post/PostList';
@@ -22,7 +22,7 @@ const CategoryPage = ({ posts = [], category }: CategoryPageProps) => {
 };
 
 export const getStaticPaths: GetStaticPaths = async () => {
-  const paths = Object.values(Category).map((el) => ({
+  const paths = Object.values(allCategories).map((el) => ({
     params: { category: el },
   }));
 

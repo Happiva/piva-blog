@@ -1,9 +1,11 @@
-export enum Category {
-  JAVASCRIPT = 'javascript',
-  REACT = 'react',
-  PROJECT = 'project',
-  ETC = 'etc',
-}
+export const allCategories = {
+  javascript: 'javascript',
+  react: 'react',
+  project: 'project',
+  etc: 'etc',
+} as const;
+
+export type Category = (typeof allCategories)[keyof typeof allCategories];
 
 export type Post = {
   title: string;

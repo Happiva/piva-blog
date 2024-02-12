@@ -1,4 +1,4 @@
-import { Category } from '@/types';
+import { Category, allCategories } from '@/types';
 import { getCategoryName } from '@/utils/utility';
 import { useRouter } from 'next/router';
 import { ChangeEvent } from 'react';
@@ -14,8 +14,7 @@ const MobileCategories = ({ defaultCategory }: MobileCategoriesProps) => {
   let defaultValue = 'all';
 
   if (selectedCategory != null) {
-    const index = Object.values(Category).indexOf(selectedCategory);
-    defaultValue = Object.keys(Category)[index];
+    defaultValue = defaultCategory as Category;
   }
 
   const onChangeSelection = (e: ChangeEvent<HTMLSelectElement>) => {
@@ -23,8 +22,7 @@ const MobileCategories = ({ defaultCategory }: MobileCategoriesProps) => {
     if (value === 'all') {
       router.push('/');
     } else {
-      const category = Category[value as keyof typeof Category];
-      router.push(`/categories/${category}`);
+      router.push(`/categories/${value}`);
     }
   };
 
@@ -36,9 +34,9 @@ const MobileCategories = ({ defaultCategory }: MobileCategoriesProps) => {
         defaultValue={defaultValue}
       >
         <option value="all">전체</option>
-        {Object.keys(Category).map((el) => (
+        {Object.keys(allCategories).map((el) => (
           <option key={el} value={el}>
-            {getCategoryName(Category[el as keyof typeof Category])}
+            {getCategoryName(el as Category)}
           </option>
         ))}
       </select>
