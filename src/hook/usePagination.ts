@@ -19,9 +19,7 @@ const usePagination = (originalPosts: Post[]) => {
     const startIdx = (currentPage - 1) * 5;
     const endIdx = startIdx + MAX_CONTENTS_DISPLAY;
 
-    const selectedPosts = originalPosts.filter(
-      (post, idx) => startIdx <= idx && idx < endIdx,
-    );
+    const selectedPosts = originalPosts.slice(startIdx, endIdx);
     setVisiblePosts(selectedPosts);
 
     setPrevEnabled(currentPage !== 1);

@@ -47,16 +47,25 @@ const MobileNavigator = () => {
             <FontAwesomeIcon icon={faXmark} className="size-[25px]" />
           </button>
           <div className="w-[80%] bg-dark-sky-200 h-[2px] rounded-full mt-[10px]" />
-          {navLinks.map(({ text, link }) => (
-            <Link
-              key={text}
-              href={link}
-              onClick={onClickButton}
-              className="text-[24px] font-comfortaa py-[20px]"
-            >
-              {text}
-            </Link>
-          ))}
+          {navLinks.map(({ text, link, available }) =>
+            available ? (
+              <Link
+                key={text}
+                href={link}
+                onClick={onClickButton}
+                className="text-[24px] font-comfortaa py-[20px]"
+              >
+                {text}
+              </Link>
+            ) : (
+              <div
+                key={text}
+                className="text-[24px] text-gray-base font-comfortaa py-[20px] after:content-['_(준비_중)'] after:text-[18px]"
+              >
+                {text}
+              </div>
+            ),
+          )}
         </div>
       </div>
     </>

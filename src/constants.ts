@@ -4,14 +4,17 @@ export const navLinks = [
   {
     text: 'About',
     link: '/about',
+    available: true,
   },
   {
     text: 'Blog',
     link: '/',
+    available: true,
   },
   {
     text: 'Portfolio',
     link: '/portfolio',
+    available: false,
   },
 ];
 
