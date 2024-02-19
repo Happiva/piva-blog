@@ -27,3 +27,5 @@ export const CATEGORY_NAME = [
   { key: 'project', text: 'Project' },
   { key: 'etc', text: 'etc' },
 ];
+
+export const BLOG_URL = '';

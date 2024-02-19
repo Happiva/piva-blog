@@ -1,6 +1,7 @@
 import Categories from '@/components/category/Categories';
 import Comments from '@/components/post/Comments';
 import FloatingButtons from '@/components/post/FloatingButtons';
+import PostSeo from '@/components/post/PostSeo';
 import PostTitle from '@/components/post/PostTitle';
 import TOC from '@/components/post/TOC';
 import HeadingComponent from '@/components/shared/Heading';
@@ -37,16 +38,21 @@ const customMdxComponents = {
 };
 
 const PostPage = ({ content, data, tocData }: PostProps) => {
+  const { title, createdAt, category, summary, slug } = data;
+
   return (
     <div className="flex flex-col lg:flex-row">
+      <PostSeo
+        title={title}
+        category={category}
+        createdAt={createdAt}
+        description={summary}
+        slug={slug}
+      />
       <Categories />
       <FloatingButtons />
       <div className="lg:pl-left-menu lg:w-[80%] lg:pb-[30px]">
-        <PostTitle
-          title={data.title}
-          createdAt={data.createdAt}
-          category={data.category}
-        />
+        <PostTitle title={title} createdAt={createdAt} category={category} />
         <section className="prose rounded-[5px] p-[12px] dark:bg-dark-blue-dark dark:border-2 dark:border-dark-sky-200 bg-white lg:overflow-auto lg:p-[30px] lg:mt-[16px] lg:rounded-[10px] h-fit">
           <MDXRemote {...content} components={customMdxComponents} />
         </section>

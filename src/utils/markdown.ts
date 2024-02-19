@@ -16,7 +16,7 @@ export const getPost = (fileName: string) => {
   const source = getFileContent(fileName);
   const { content, data } = matter(source);
 
-  return { content, data };
+  return { content, data: { ...data, slug: fileName.replace('.mdx', '') } };
 };
 
 export const getAllPosts = () => {
