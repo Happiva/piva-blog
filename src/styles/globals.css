@@ -19,6 +19,12 @@
   }
 }
 
+@layer components {
+  .card {
+    @apply bg-white dark:bg-dark-blue-dark dark:border-2 dark:border-dark-sky-200
+  }
+}
+
 html, body {
   width: 100%;
   height: 100%;

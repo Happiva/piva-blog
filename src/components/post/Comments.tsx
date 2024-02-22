@@ -41,10 +41,7 @@ const Comments = () => {
   if (!mounted) return null;
 
   return (
-    <section
-      id="comments"
-      className="bg-white rounded-[10px] mt-[12px] dark:bg-dark-blue-dark p-[16px] dark:border-2 dark:border-dark-sky-200"
-    >
+    <section id="comments" className="card rounded-[10px] mt-[12px] p-[16px]">
       <button type="button" onClick={() => setFolded((prev) => !prev)}>
         <FontAwesomeIcon
           className="mr-[8px]"

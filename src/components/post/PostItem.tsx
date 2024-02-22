@@ -25,7 +25,7 @@ const PostItem = ({ post }: PostItemProps) => {
   return (
     <Link
       href={`/post/${slug}`}
-      className="bg-white dark:bg-dark-blue-dark rounded-[5px] p-[12px] max-w-[343px] w-full shadow mb-[16px] dark:border-2 dark:border-dark-sky-200 sm:flex sm:flex-row sm:max-w-[750px] sm:w-full sm:p-[10px]"
+      className="card rounded-[5px] p-[12px] max-w-[343px] w-full shadow mb-[16px] sm:flex sm:flex-row sm:max-w-[750px] sm:w-full sm:p-[10px]"
     >
       {thumbnailPath !== '' && thumbnailPath != null ? (
         <Image

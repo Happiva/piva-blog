@@ -6,7 +6,7 @@ interface TOCProps {
 
 const TOC = ({ tocData }: TOCProps) => {
   return (
-    <div className="flex flex-col fixed bg-white rounded-[10px] h-fit ml-[16px] p-[12px] text-[14px] gap-y-1 dark:bg-transparent dark:border-2 dark:border-dark-sky-200">
+    <div className="card flex flex-col fixed rounded-[10px] h-fit ml-[16px] p-[12px] text-[14px] gap-y-1">
       {tocData.map((el) => {
         const ref = el.text
           .toLocaleLowerCase()
