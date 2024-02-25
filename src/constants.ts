@@ -13,7 +13,7 @@ export const navLinks = [
   },
   {
     text: 'Portfolio',
-    link: '/portfolio',
+    link: '/',
     available: false,
   },
 ];
