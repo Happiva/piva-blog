@@ -5,6 +5,9 @@ import { DefaultSeo } from 'next-seo';
 import { ThemeProvider } from 'next-themes';
 import type { AppProps } from 'next/app';
 import { Comfortaa, Noto_Sans_KR } from 'next/font/google';
+import { config } from '@fortawesome/fontawesome-svg-core';
+
+config.autoAddCss = false;
 
 export const comfortaa = Comfortaa({
   subsets: ['latin'],

@@ -4,6 +4,7 @@
 
 @import 'prism-vsc-dark-plus.css';
 @import 'prose.css';
+@import '@fortawesome/fontawesome-svg-core/styles.css';
 
 :root {
   --foreground-rgb: 0, 0, 0;
