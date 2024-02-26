@@ -6,7 +6,7 @@ const Heading = ({ type, children }: HeadingProps) => {
   const id = children
     ?.toString()
     .toLocaleLowerCase()
-    .replace(/[^\w\s]/g, '')
+    .replace(/[^\w\sㄱ-힣-]/g, ' ')
     .replaceAll(' ', '-');
 
   if (type === 'h1') {

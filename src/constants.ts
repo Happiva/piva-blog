@@ -23,7 +23,7 @@ export const SCROLL_POINT = 100;
 
 export const CATEGORY_NAME = [
   { key: 'javascript', text: 'Javascript' },
-  { key: 'react', text: 'React/React Native' },
+  { key: 'react', text: 'React/RN' },
   { key: 'project', text: 'Project' },
   { key: 'etc', text: 'etc' },
 ];
